@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      <AddTodo addTodo= {addTodo} />
+      <AddTodo addTodo={addTodo} />
       <List list={todos} />
 
     </div>

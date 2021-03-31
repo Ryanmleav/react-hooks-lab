@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import ListAnime from './ListAnime'
+import './App.css'
 
 function App() {
+
+  const [anime, setAnime] = useState([])
+
+  useEffect(() => {
+    axios.get('https://animechan.vercel.app/api/available/anime').then((res) => {
+      setAnime(res.data.results)
+    })
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {anime.map((element, index) => {
+        return <ListAnime title={element.title} key={index} />
+      })}
     </div>
-  );
+  )
 }
 
 export default App;
