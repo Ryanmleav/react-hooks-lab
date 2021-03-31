@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ListAnime = (props) => {
-  return <h1>{props.list}</h1>
+  return <h1>{props.title}</h1>
 }
 
 export default ListAnime

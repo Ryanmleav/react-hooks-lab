@@ -9,13 +9,14 @@ function App() {
 
   useEffect(() => {
     axios.get('https://animechan.vercel.app/api/available/anime').then((res) => {
-      setAnime(res.data.results)
+    console.log(res.data) 
+    setAnime(res.data)
     })
   }, [])
   return (
     <div className="App">
       {anime.map((element, index) => {
-        return <ListAnime title={element.title} key={index} />
+        return <ListAnime title={element} key={index} />
       })}
     </div>
   )
